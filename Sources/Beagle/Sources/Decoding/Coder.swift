@@ -175,6 +175,7 @@ final public class Coder: CoderProtocol {
     }
     
     private func registerWidgets() {
+        register(Picker.self, key: key(name: "BeagleSpinner"), baseType: .component)
         register(Button.self, key: key(name: "Button"), baseType: .component)
         register(Container.self, key: key(name: "Container"), baseType: .component)
         register(GridView.self, key: key(name: "GridView"), baseType: .component)
