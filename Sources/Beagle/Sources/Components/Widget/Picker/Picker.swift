@@ -9,8 +9,6 @@
 public struct Picker: Widget {
     
     /// Defines the button text content.
-    public let text: Expression<String>
-    
     public let entries: Expression<[String]>
     
     /// References a native style configured to be applied on this button.
@@ -18,10 +16,9 @@ public struct Picker: Widget {
     
     /// Attribute to define actions when this component is pressed.
     @AutoCodable
-    public var onPress: [Action]?
+    public var onSelected: [Action]?
     
     /// Enables or disables the button.
-    public var enabled: Expression<Bool>?
     
     public var id: String?
     public var style: Style?
