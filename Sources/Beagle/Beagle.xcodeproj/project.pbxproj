@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		095CD60A27BED17500B03841 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095CD60927BED17500B03841 /* Picker.swift */; };
+		095CD60C27BED19A00B03841 /* Picker+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095CD60B27BED19A00B03841 /* Picker+Extensions.swift */; };
 		2539A44F24C61C0D00B8FA92 /* GlobalContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2539A44E24C61C0D00B8FA92 /* GlobalContextProtocol.swift */; };
 		2552F1982502AE7E004055A5 /* BeagleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2552F1972502AE7E004055A5 /* BeagleView.swift */; };
 		25BFEDA1252BC0A500365889 /* ImageDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BFEDA0252BC0A500365889 /* ImageDownloaderProtocol.swift */; };
@@ -323,6 +325,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		095CD60927BED17500B03841 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
+		095CD60B27BED19A00B03841 /* Picker+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Picker+Extensions.swift"; sourceTree = "<group>"; };
 		2539A44E24C61C0D00B8FA92 /* GlobalContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalContextProtocol.swift; sourceTree = "<group>"; };
 		2552F1972502AE7E004055A5 /* BeagleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeagleView.swift; sourceTree = "<group>"; };
 		25BFEDA0252BC0A500365889 /* ImageDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderProtocol.swift; sourceTree = "<group>"; };
@@ -683,6 +687,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		093677B827BE8BEA008E07E0 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				095CD60927BED17500B03841 /* Picker.swift */,
+				095CD60B27BED19A00B03841 /* Picker+Extensions.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		3D21CD3725B769C100A392CA /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1512,6 +1525,7 @@
 		9398CA6C25532B520003A010 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
+				093677B827BE8BEA008E07E0 /* Picker */,
 				C08D4E6A2485939900AAAC0A /* Button */,
 				C08D4DF524857AC300AAAC0A /* Container */,
 				5C5B90E5263891F30005BD93 /* GridView */,
@@ -2308,7 +2322,9 @@
 				A0EB6BD925910FC8001A3E65 /* AnalyticsService.swift in Sources */,
 				9337F82D249A466B00B0A260 /* SetContext+Extensions.swift in Sources */,
 				E7523AF8239E8F2100F93385 /* BeagleConfigurator.swift in Sources */,
+				095CD60A27BED17500B03841 /* Picker.swift in Sources */,
 				576F61052487004900273BA0 /* ContextObserver.swift in Sources */,
+				095CD60C27BED19A00B03841 /* Picker+Extensions.swift in Sources */,
 				E5CB5D65234E7CF6009783A7 /* BeagleScreenViewController.swift in Sources */,
 				9398CA51255325190003A010 /* Binding.swift in Sources */,
 				E52236CB23745DED00E555BB /* HTTPRequestCanceling.swift in Sources */,
