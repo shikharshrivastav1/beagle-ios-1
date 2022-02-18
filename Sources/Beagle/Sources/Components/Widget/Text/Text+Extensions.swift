@@ -40,6 +40,19 @@ extension Text {
             alignment?.toUIKit() ?? .natural
         }
         
+        if let textTypeFace = textTypeFace {
+            let textSizeFinal = textSize ?? 14
+            if textTypeFace == TextStyle.bold || textTypeFace == TextStyle.bold_italic {
+                textView.font = UIFont.boldSystemFont(ofSize: CGFloat(textSizeFinal))
+            }
+            else if textTypeFace == TextStyle.italic {
+                textView.font = UIFont.italicSystemFont(ofSize: CGFloat(textSizeFinal))
+            }
+        }
+        else if let textSize = textSize {
+            textView.font = UIFont.systemFont(ofSize: CGFloat(textSize))
+        }
+        
         if let styleId = styleId {
             textView.beagle.applyStyle(for: textView as UITextView, styleId: styleId, with: renderer.controller)
         }
