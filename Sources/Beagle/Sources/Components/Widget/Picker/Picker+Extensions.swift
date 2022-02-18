@@ -10,7 +10,7 @@ import UIKit
 extension Picker {
     
     public func toView(renderer: BeagleRenderer) -> UIView {
-        let picker = BeagleUIPicker()
+        let picker = BeagleUIPicker(onSelected: onSelected, controller: renderer.controller)
         picker.dataSource = picker
         picker.delegate = picker
         picker.translatesAutoresizingMaskIntoConstraints = false
@@ -27,6 +27,28 @@ extension Picker {
     final class BeagleUIPicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate {
         
         var items: [String]? = nil
+        
+        var styleId: String? {
+            didSet { applyStyle() }
+        }
+        
+        private var onSelected: [Action]?
+        private weak var controller: BeagleController?
+        
+        required init(
+            onSelected: [Action]?,
+            controller: BeagleController?
+        ) {
+            super.init(frame: .zero)
+            self.onSelected = onSelected
+            self.controller = controller
+            setDefaultStyle()
+        }
+        
+        @available(*, unavailable)
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
         
         func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
@@ -47,7 +69,18 @@ extension Picker {
         }
         
         func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            controller?.execute(actions: onSelected, event: "onSelected", origin: self)
+            let value: DynamicObject = .dictionary(["value": .string(items?[row] ?? "")])
+            controller?.execute(actions: onSelected, with: "onSelected", and: value, origin: self)
+        }
+        
+        private func applyStyle() {
+            guard let styleId = styleId else { return }
+            beagle.applyStyle(for: self as UIPickerView, styleId: styleId, with: controller)
+        }
+        
+        private func setDefaultStyle() {
+            /*setTitleColor(UIColor.systemBlue, for: .normal)
+            titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)*/
         }
         
     }
