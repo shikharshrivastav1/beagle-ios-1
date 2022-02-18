@@ -23,11 +23,15 @@ public struct Text: Widget {
     /// References a style configured to be applied on this text view.
     public var styleId: String?
     
+    public var textSize: Float?
+    
     /// Defines the text content alignment inside the text view.
     public var alignment: Expression<Alignment>?
     
     /// Defines the text color natively.
     public var textColor: Expression<String>?
+    
+    public var textTypeFace: TextStyle?
     
     public var id: String?
     public var style: Style?
@@ -40,5 +44,12 @@ extension Text {
         case left = "LEFT"
         case right = "RIGHT"
         case center = "CENTER"
+    }
+    
+    public enum TextStyle: String, Codable, CaseIterable {
+        case bold = "BOLD"
+        case italic = "ITALIC"
+        case bold_italic = "BOLD_ITALIC"
+        //Bold and Italics not supported at the same time
     }
 }
