@@ -46,5 +46,9 @@ extension Picker {
             return ""
         }
         
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            controller?.execute(actions: onSelected, event: "onSelected", origin: self)
+        }
+        
     }
 }
