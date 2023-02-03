@@ -115,7 +115,14 @@ final class TabBarItemUIComponent: UIView {
     }
     
     private func getSelectedAppearanceColors() -> (textColor: UIColor, iconColor: UIColor) {
-        guard let theme = theme, let isSelected = isSelected else { return (.black, .black) }
+        guard let theme = theme, let isSelected = isSelected else {
+            if #available(iOS 12.0, *) {
+                if self.traitCollection.userInterfaceStyle == .dark {
+                    return (.white, .white)
+                }
+            }
+            return (.black, .black)
+        }
         if isSelected {
             return (theme.selectedTextColor ?? UIColor.black, theme.selectedIconColor ?? UIColor.black)
         }
