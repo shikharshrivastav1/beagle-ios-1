@@ -79,13 +79,16 @@ extension Image {
         let controller = renderer.controller
         return renderer.imageDownloader.fetchImage(url: path, additionalData: nil) {
             [weak imageView, weak controller] result in
+            ////print("SDWebImageManager lazyLoadImage")
             guard let imageView = imageView else { return }
             switch result {
             case .success(let data):
+                ////print("SDWebImageManager lazyLoadImage success \(data == nil)")
                 let image = UIImage(data: data)
                 imageView.image = image
-                controller?.setNeedsLayout(component: imageView)
+                //controller?.setNeedsLayout(component: imageView)
             case .failure:
+                ////print("SDWebImageManager lazyLoadImage failure")
                 imageView.image = placeholderImage
                 controller?.setNeedsLayout(component: imageView)
             }
